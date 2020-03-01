@@ -18,3 +18,9 @@ if [ ! -d "$HOME/.local/bin" ] ; then
 fi
 cp -r ./bin ~/.local/
 
+if [ ! -d "$HOME/Pictures" ] ; then
+	mkdir -p ~/Pictures
+fi
+
+cp lockscreen.png ~/Pictures/lockscreen.png
+
