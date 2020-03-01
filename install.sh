@@ -1,14 +1,19 @@
-sudo pacman --noconfirm -S xorg-server xorg-xinit i3 mesa vlc alacritty feh dunst
+sudo pacman --noconfirm -S xorg-server xorg-xinit
+sudo pacman --noconfirm -S i3 --ignore i3lock 
+sudo pacman --noconfirm -S i3lock-color mesa vlc alacritty feh dunst
+
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
 cp ./xinitrc ~/.xinitrc
 cp ./i3.config ~/.config/i3/config
-if [ ! -d "~/.config/i3status"] ; then
+
+if [ ! -d "$HOME/.config/i3status" ] ; then
 	mkdir ~/.config/i3status
 fi
 cp ./i3status.config ~/.config/i3status/config
 
-if [ ! -d "~/.local/bin" ] ; then
+
+if [ ! -d "$HOME/.local/bin" ] ; then
 	mkdir -p ~/.local/bin
 fi
 cp -r ./bin ~/.local/bin
