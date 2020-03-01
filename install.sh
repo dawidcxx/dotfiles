@@ -1,6 +1,8 @@
 sudo pacman --noconfirm -S xorg-server xorg-xinit
 sudo pacman --noconfirm -S i3 --ignore i3lock 
 sudo pacman --noconfirm -S i3lock-color mesa vlc alacritty feh dunst
+sudo pacman --noconfirm -S imagemagick xorg-xrandr xorg-xdpyinfo
+sudo pacman --noconfirm -S flameshot alsa-utils
 
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
@@ -23,4 +25,4 @@ if [ ! -d "$HOME/Pictures" ] ; then
 fi
 
 cp lockscreen.png ~/Pictures/lockscreen.png
-
+betterlock -u ~/Pictures/lockscreen.png 
