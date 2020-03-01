@@ -16,5 +16,5 @@ cp ./i3status.config ~/.config/i3status/config
 if [ ! -d "$HOME/.local/bin" ] ; then
 	mkdir -p ~/.local/bin
 fi
-cp -r ./bin ~/.local/bin
+cp -r ./bin ~/.local/
 
