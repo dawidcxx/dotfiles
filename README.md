@@ -40,11 +40,11 @@ FIXME: this will be fixed once brave is added to offical repos.
 
 ## Most frequently used keybindings
 
-`$mod` is set to `WinKey`.
+- `$mod` is set to `WinKey`.
 
-`$mod+Tab` - start browser
-`$mod+Shift+Tab` - start browser incognito mode
-`$mod+Enter` - start terminal
-`$mod+o` - screenlock
+- `$mod+Tab` - start browser
+- `$mod+Shift+Tab` - start browser incognito mode
+- `$mod+Enter` - start terminal
+- `$mod+o` - screenlock
 
 Window moving, workspace switching etc is done using i3 defaults. 
