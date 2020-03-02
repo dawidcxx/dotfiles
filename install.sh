@@ -7,13 +7,19 @@ sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
 cp ./xinitrc ~/.xinitrc
-cp ./dunstrc ~/.config/dunst/dunstrc
 cp ./i3.config ~/.config/i3/config
 
 if [ ! -d "$HOME/.config/i3status" ] ; then
 	mkdir ~/.config/i3status
 fi
 cp ./i3status.config ~/.config/i3status/config
+
+
+if [ ! -d "$HOME/.config/dunst" ] ; then
+	mkdir ~/.config/dunst
+fi
+
+cp ./dunstrc ~/.config/dunst/dunstrc
 
 
 if [ ! -d "$HOME/.local/bin" ] ; then
