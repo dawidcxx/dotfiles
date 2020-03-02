@@ -86,12 +86,12 @@ lock() {
 
 	i3lock \
 		-t -i "$1" \
-		--timepos='x+295:h-85' \
+		--timepos='x+150:h-85' \
 		--timesize=70 \
 		--datesize=40 \
 		--datestr="%d %b %A" \
 		--veriftext="Drinking verification can..." \
-		--datepos='x+158:h-35' \
+		--datepos='x+150:h-35' \
 		--clock --date-align 1  \
 		--insidecolor=$insidecolor --ringcolor=$ringcolor --line-uses-inside \
 		--keyhlcolor=$keyhlcolor --bshlcolor=$bshlcolor --separatorcolor=$separatorcolor \
