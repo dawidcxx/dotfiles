@@ -1,8 +1,9 @@
 sudo pacman --noconfirm -S xorg-server xorg-xinit
 sudo pacman --noconfirm -S i3 --ignore i3lock 
-sudo pacman --noconfirm -S i3lock-color mesa vlc alacritty feh libnotify dunst
+sudo pacman --noconfirm -S i3lock-color mesa base-devel alacritty feh libnotify dunst dmenu
 sudo pacman --noconfirm -S imagemagick xorg-xrandr xorg-xdpyinfo
 sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts
+sudo pacman --noconfirm -S vlc youtube-dl 
 
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
