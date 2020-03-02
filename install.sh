@@ -7,6 +7,7 @@ sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
 cp ./xinitrc ~/.xinitrc
+cp ./dunstrc ~/.config/dunst/dunstrc
 cp ./i3.config ~/.config/i3/config
 
 if [ ! -d "$HOME/.config/i3status" ] ; then
