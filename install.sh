@@ -38,5 +38,5 @@ betterlock -u ~/Pictures/lockscreen.png
 if [ ! -d "$HOME/Pictures/wallpapers" ] ; then
 	mkdir -p ~/Pictures/wallpapers
 fi
-
+cp -r ./wallpapers ~/Pictures/
 cp ./.fehbg ~/.fehbg
