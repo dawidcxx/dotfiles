@@ -31,8 +31,8 @@ init_filenames() {
 	    timecolor=ffffffff
 	    datecolor=ffffffff
 	    loginbox=00000066
-		font="sans-serif"
-      	locktext='Type password to unlock...'
+	    font="Noto Serif"
+            locktext='Type password to unlock...'
 	fi
 
 	# create folder in ~/.cache/i3lock directory
@@ -86,17 +86,17 @@ lock() {
 
 	i3lock \
 		-t -i "$1" \
-		--timepos='x+150:h-85' \
-		--timesize=70 \
+		--timepos='x+220:h-85' \
+		--timesize=110 \
 		--datesize=40 \
 		--datestr="%d %b %A" \
 		--veriftext="Drinking verification can..." \
-		--datepos='x+150:h-35' \
+		--datepos='x+15:h-35' \
 		--clock --date-align 1  \
 		--insidecolor=$insidecolor --ringcolor=$ringcolor --line-uses-inside \
 		--keyhlcolor=$keyhlcolor --bshlcolor=$bshlcolor --separatorcolor=$separatorcolor \
 		--insidevercolor=$insidevercolor --insidewrongcolor=$insidewrongcolor \
-		--ringvercolor=$ringvercolor --ringwrongcolor=$ringwrongcolor --indpos='x+1320:h-35' \
+		--ringvercolor=$ringvercolor --ringwrongcolor=$ringwrongcolor --indpos='x+1850:h-35' \
 		--radius=20 --ring-width=4 --veriftext='' --wrongtext='' \
 		--verifcolor="$verifcolor" --timecolor="$timecolor" --datecolor="$datecolor" \
 		--time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" \
