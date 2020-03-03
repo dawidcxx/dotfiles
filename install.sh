@@ -3,7 +3,7 @@ sudo pacman --noconfirm -S i3 --ignore i3lock
 sudo pacman --noconfirm -S i3lock-color mesa base-devel alacritty feh libnotify dunst dmenu
 sudo pacman --noconfirm -S imagemagick xorg-xrandr xorg-xdpyinfo
 sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts
-sudo pacman --noconfirm -S vlc youtube-dl 
+sudo pacman --noconfirm -S vlc youtube-dl py3status ttf-joypixels
 
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
