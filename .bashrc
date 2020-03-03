@@ -20,7 +20,7 @@ PS1='[\u@\h \W]\$ '
 export HISTSIZE=100000
 
 export EDITOR="code"
-export BROWSER="firefox"
+export BROWSER="brave"
 export PATH=~/.local/bin:$PATH
 export PROMPT_COMMAND='history -a'
 
