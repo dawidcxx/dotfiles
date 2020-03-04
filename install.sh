@@ -11,13 +11,13 @@ cp ./xinitrc ~/.xinitrc
 cp ./i3.config ~/.config/i3/config
 
 if [ ! -d "$HOME/.config/i3status" ] ; then
-	mkdir ~/.config/i3status
+	mkdir -p ~/.config/i3status
 fi
 cp ./i3status.config ~/.config/i3status/config
 
 
 if [ ! -d "$HOME/.config/dunst" ] ; then
-	mkdir ~/.config/dunst
+	mkdir -p ~/.config/dunst
 fi
 
 cp ./dunstrc ~/.config/dunst/dunstrc
