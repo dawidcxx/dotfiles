@@ -33,11 +33,11 @@ if [ ! -d "$HOME/Pictures" ] ; then
 	mkdir -p ~/Pictures
 fi
 
-if [ -n "$DISPLAY"]; then
 cp lockscreen.png ~/Pictures/lockscreen.png
-betterlock -u ~/Pictures/lockscreen.png 
+if [ -n "$DISPLAY" ]; then
+	betterlock -u ~/Pictures/lockscreen.png 
 else
-echo "Not setting betterlock, rerun this script with a running X session!"
+	echo "Not setting betterlock, rerun this script with a running X session!"
 fi
 
 if [ ! -d "$HOME/Pictures/wallpapers" ] ; then
