@@ -9,6 +9,7 @@ cp ./.bashrc ~/.bashrc
 source ~/.bashrc
 cp ./xinitrc ~/.xinitrc
 cp ./i3.config ~/.config/i3/config
+export PATH="$PATH:$HOME/.local/bin"
 
 if [ ! -d "$HOME/.config/i3status" ] ; then
 	mkdir -p ~/.config/i3status
