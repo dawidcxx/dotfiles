@@ -25,7 +25,7 @@ export PATH=~/.local/bin:$PATH
 export PROMPT_COMMAND='history -a'
 
 export GRAALVM_HOME=~/.sdk/java/current
-
+export GRAALVM_HOME=~/.sdkman/candidates/java/current
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/dawid/.sdkman"
 [[ -s "/home/dawid/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dawid/.sdkman/bin/sdkman-init.sh"
