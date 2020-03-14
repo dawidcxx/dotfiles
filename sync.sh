@@ -7,4 +7,4 @@ cp -rv ~/Pictures/wallpapers ./
 cp ~/.fehbg .fehbg
 cp ~/.config/dunst/dunstrc dunstrc
 cp /etc/systemd/system/suspend@.service suspend@.service
-
+cp -rv ~/Pictures/lockscreen.png lockscreen.png

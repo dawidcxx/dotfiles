@@ -4,6 +4,7 @@ sudo pacman --noconfirm -S i3lock-color mesa base-devel bc alacritty feh libnoti
 sudo pacman --noconfirm -S dmenu imagemagick xorg-xrandr xorg-xdpyinfo
 sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts
 sudo pacman --noconfirm -S vlc youtube-dl py3status ttf-joypixels
+sudo pacman --noconfirm -S pulseaudio pulseaudio-alsa pasystray
 
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
