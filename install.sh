@@ -8,7 +8,7 @@ sudo pacman --noconfirm -S pulseaudio pulseaudio-alsa pasystray
 
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
-cp ./xinitrc ~/.xinitrc
+cp ./.xinitrc ~/.xinitrc
 cp ./i3.config ~/.config/i3/config
 export PATH="$PATH:$HOME/.local/bin"
 
