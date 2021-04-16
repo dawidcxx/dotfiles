@@ -10,6 +10,7 @@ yt_vlc() {
 	youtube-dl --write-auto-sub -f best -o "'vid.%(ext)s'" "$1" 
 	vlc --sub-autodetect-file --sub-file ./'vid.en.vtt' 
 }
+
 alias pac='sudo pacman'
 alias sys='sudo systemctl'
 alias sysr='sudo systemctl daemon-reload && echo "reloaded"'
@@ -20,7 +21,7 @@ PS1='[\u@\h \W]\$ '
 export HISTSIZE=100000
 
 export EDITOR="code"
-export BROWSER="brave"
+export BROWSER="firefox"
 export PATH=~/.local/bin:$PATH
 export PROMPT_COMMAND='history -a'
 

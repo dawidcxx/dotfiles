@@ -1,10 +1,11 @@
 sudo pacman --noconfirm -S xorg-server xorg-xinit
-sudo pacman --noconfirm -S i3 --ignore i3lock 
-sudo pacman --noconfirm -S i3lock-color mesa base-devel bc alacritty feh libnotify dunst dmenu
+sudo pacman --noconfirm -S i3 --ignore i3lock py3status 
+sudo pacman --noconfirm -S i3lock-color mesa base-devel bc feh libnotify dunst dmenu
 sudo pacman --noconfirm -S dmenu imagemagick xorg-xrandr xorg-xdpyinfo
-sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts
-sudo pacman --noconfirm -S vlc youtube-dl py3status ttf-joypixels
+sudo pacman --noconfirm -S flameshot alsa-utils man noto-fonts konsole
+sudo pacman --noconfirm -S youtube-dl ttf-joypixels
 sudo pacman --noconfirm -S pulseaudio pulseaudio-alsa pasystray
+sudo pacman --noconfirm -S firefox
 
 cp ./.bashrc ~/.bashrc
 source ~/.bashrc
