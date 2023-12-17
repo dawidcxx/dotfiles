@@ -18,6 +18,7 @@ Osu (Rythm Game)
 Switch Audio Output
 Open Code Project
 Kill App (via pkill)
+Power
 Quit")
 
 # Create a menu using rofi
@@ -66,6 +67,19 @@ case $choice in
         pactl set-default-sink $sink_choice_pid 
         notify-send "Audio output switched '${sink_choice_pid}'"
         ;;
+    'Power') 
+        declare -a power_options=("Shutdown\nReboot\nLogout")
+        power_choice=$(echo -e "${power_options[@]}" | rofi -dmenu -i -p 'Power option: ')
+        case $power_choice in
+            'Shutdown')
+                systemctl poweroff ;;
+            'Reboot')
+                systemctl reboot ;;
+            'Logout')
+                leftwm command "Quit" ;;
+            *)
+                echo "Invalid option. Program terminated." ;;
+        esac ;;
     'Quit')
         echo "Program terminated." ;;
     *)

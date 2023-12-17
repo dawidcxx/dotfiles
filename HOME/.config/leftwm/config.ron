@@ -28,7 +28,7 @@
     layouts: [
         "MainAndVertStack",
         "Grid",
-        "Monocle"
+        "Monocle",
     ],
     layout_definitions: [
         (name: "EvenHorizontal", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: None, stack: (flip: None, rotate: North, split: Vertical), second_stack: None)),
@@ -70,8 +70,9 @@
     disable_cursor_reposition_on_resize: false,
     keybind: [
         (command: Execute, value: "dmenu_run", modifier: ["modkey"], key: "p"),
-        (command: Execute, value: "bash ~/.config/leftwm/rofi.sh", modifier: ["modkey"], key: "d"),
-        (command: Execute, value: "bash ~/.config/leftwm/focus-window.sh", modifier: ["modkey"], key: "e"),
+        (command: Execute, value: "bash ~/.config/leftwm/rofi-menu/open-app.sh", modifier: ["modkey"], key: "d"),
+        (command: Execute, value: "bash ~/.config/leftwm/rofi-menu/find-window.sh", modifier: ["modkey"], key: "e"),
+
         (command: Execute, value: "flameshot gui", modifier: [], key: "Print"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),
         
