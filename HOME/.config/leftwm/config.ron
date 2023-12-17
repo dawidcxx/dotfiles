@@ -87,6 +87,9 @@
         (command: FocusWorkspaceNext, value: "", modifier: ["modkey"], key: "l"),
         (command: FocusWorkspacePrevious, value: "", modifier: ["modkey"], key: "h"),
 
+        (command: Execute, value: "sh ~/.config/leftwm/promote.sh", modifier: ["modkey"], key: "m"),
+        (command: SetLayout, value: "Grid", modifier: ["modkey"], key: "g"),
+
         (command: NextLayout, value: "", modifier: ["modkey"], key: "Tab"),
         (command: PreviousLayout, value: "", modifier: ["modkey", "Shift"], key: "Tab"),
 
