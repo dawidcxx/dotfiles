@@ -15,6 +15,8 @@ Slack (Chatting App)
 Pavucontrol (Audio Control)
 Drag&Drop File (Scratchpad Util)
 Osu (Rythm Game)
+Switch Audio Output
+Open Code Project
 Quit")
 
 # Create a menu using rofi
@@ -50,8 +52,17 @@ case $choice in
         resolution=$(xrandr --current | grep '*' | uniq | awk '{print $1}')
         xrandr --output $display --mode $resolution --rate $highest_rate
         osu\! &;;
+    'Open Code Project')
+        bash ~/.config/leftwm/open-project.sh & ;;
     'Alacritty (Terminal / Command Line Interface)')
         alacritty & ;;
+    'Switch Audio Output')
+        sink_options=$(pactl list short sinks)
+        sink_choice=$(echo -e "$sink_options" | rofi -dmenu -i -p 'Pick sink: ')
+        sink_choice_pid=$(echo $sink_choice | awk '{print $1}')
+        pactl set-default-sink $sink_choice_pid 
+        notify-send "Audio output switched '${sink_choice_pid}'"
+        ;;
     'Quit')
         echo "Program terminated." ;;
     *)
