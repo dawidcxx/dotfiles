@@ -17,6 +17,7 @@ Drag&Drop File (Scratchpad Util)
 Osu (Rythm Game)
 Switch Audio Output
 Open Code Project
+Kill App (via pkill)
 Quit")
 
 # Create a menu using rofi
@@ -56,6 +57,8 @@ case $choice in
         bash ~/.config/leftwm/open-project.sh & ;;
     'Alacritty (Terminal / Command Line Interface)')
         alacritty & ;;
+    'Kill App (via pkill)')
+        sh ~/.config/leftwm/killapp.sh & ;;
     'Switch Audio Output')
         sink_options=$(pactl list short sinks)
         sink_choice=$(echo -e "$sink_options" | rofi -dmenu -i -p 'Pick sink: ')
