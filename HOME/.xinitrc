@@ -20,5 +20,7 @@ echo "Polybar launched..."
 
 dunst & 
 
+xdg-mime default pcmanfm.desktop inode/directory
+
 exec leftwm
 
