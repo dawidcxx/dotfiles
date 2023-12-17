@@ -10,7 +10,7 @@ fi
 
 
 # Polybar stuff 
-killall -q polybar
+pkill polybar
 polybar &
 echo "Polybar launched..."
 

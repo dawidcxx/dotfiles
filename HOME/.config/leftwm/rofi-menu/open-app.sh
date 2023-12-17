@@ -68,15 +68,15 @@ case $choice in
         notify-send "Audio output switched '${sink_choice_pid}'"
         ;;
     'Power') 
-        declare -a power_options=("Shutdown\nReboot\nLogout")
+        declare -a power_options=("Shutdown\nReboot\nClose leftwm\nCancel")
         power_choice=$(echo -e "${power_options[@]}" | rofi -dmenu -i -p 'Power option: ')
         case $power_choice in
             'Shutdown')
                 systemctl poweroff ;;
             'Reboot')
                 systemctl reboot ;;
-            'Logout')
-                leftwm command "Quit" ;;
+            'Close leftwm')
+                pkill leftwm ;;
             *)
                 echo "Invalid option. Program terminated." ;;
         esac ;;
