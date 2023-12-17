@@ -19,6 +19,7 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
 
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernelParams = [
@@ -105,7 +106,10 @@
       discord
       keepassxc
       lazydocker
-   
+      btrfs-progs 
+      fzf 
+      tree
+
       # Desktop Env
       flameshot
       pasystray
@@ -118,11 +122,13 @@
       arandr
       lxmenu-data
       dunst
+      libnotify
       pulseaudio
       pamixer 
       pavucontrol
       feh
       gnome.adwaita-icon-theme
+      wmctrl
       redshift
 
       # Dev
