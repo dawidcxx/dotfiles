@@ -13,6 +13,8 @@ Redshift - OFF (Enable Day light)
 Discord (Chatting App)
 Slack (Chatting App)
 Pavucontrol (Audio Control)
+Drag&Drop File (Scratchpad Util)
+Osu (Rythm Game)
 Quit")
 
 # Create a menu using rofi
@@ -34,12 +36,20 @@ case $choice in
         discord & ;;
     'VSCode (Text Editor)')
         code & ;;
+    'Drag&Drop File (Scratchpad Util)')
+        leftwm command "ToggleScratchPad Pcmanfm" &;;
     'Pavucontrol (Audio Control)')
         pavucontrol & ;;
     'KeepassXc (Password Manager)')
-        keepassxc & ;;
+        leftwm command "ToggleScratchPad Keepassxc" &;;
     'PCManFM (File Manager)')
         GDK_SCALE=2 pcmanfm &;;
+    'Osu (Rythm Game)')
+        display=$(xrandr --query | grep ' connected' | cut -d ' ' -f1)
+        highest_rate=$(xrandr --query | grep -oP '[0-9]+\.[0-9]+' | sort -nr | head -n 1)
+        resolution=$(xrandr --current | grep '*' | uniq | awk '{print $1}')
+        xrandr --output $display --mode $resolution --rate $highest_rate
+        osu\! &;;
     'Alacritty (Terminal / Command Line Interface)')
         alacritty & ;;
     'Quit')

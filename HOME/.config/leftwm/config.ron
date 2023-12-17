@@ -49,6 +49,8 @@
     insert_behavior: Bottom,
     scratchpad: [
         (name: "Alacritty", value: "alacritty", x: 860, y: 390, height: 300, width: 200),
+        (name: "Keepassxc", value: "keepassxc", x: 0.6, y: 0, height: 0.3, width: 0.4),
+        (name: "Pcmanfm", value: "pcmanfm", x: 0.6, y: 0, height: 0.3, width: 0.4),
     ],
     window_rules: [
     ( window_class: "brave", spawn_on_tag: 1 ),
