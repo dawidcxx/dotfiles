@@ -3,6 +3,7 @@
 # Define a list of programs with descriptions
 declare -a options=("Firefox (Web Browser)
 Brave (Web Browser)
+Chromium (Web Browser)
 VSCode (Text Editor)
 Alacritty (Terminal / Command Line Interface)
 KeepassXc (Password Manager)
@@ -28,6 +29,8 @@ choice=$(echo -e "${options[@]}" | rofi -dmenu -i -p 'Run Program: ')
 case $choice in
     'Firefox (Web Browser)')
         firefox & ;;
+    'Chromium (Web Browser)')
+        chromium & ;;
     'Brave (Web Browser)')
         brave & ;;
     'Redshift - ON (Enable Night light)')
@@ -38,6 +41,8 @@ case $choice in
         arandr & ;;
     'Discord (Chatting App)')
         discord & ;;
+    'Slack (Chatting App)')
+        slack & ;;
     'VSCode (Text Editor)')
         code & ;;
     'Drag&Drop File (Scratchpad Util)')

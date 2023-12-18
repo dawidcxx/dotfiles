@@ -104,6 +104,7 @@
       insync
       alacritty 
       discord
+      slack
       keepassxc
       lazydocker
       btrfs-progs 

@@ -80,6 +80,8 @@
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
         (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey", "Shift"], key: "x"),
         
+        (command: ToggleFloating, value: "", modifier: ["modkey"], key: "space"),
+
         (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "k"),
         (command: MoveWindowDown, value: "", modifier: ["modkey", "Shift"], key: "j"),
         (command: FocusWindowUp, value: "", modifier: ["modkey"], key: "k"),
