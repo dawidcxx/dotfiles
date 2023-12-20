@@ -109,7 +109,9 @@
       lazydocker
       btrfs-progs 
       fzf 
-      tree
+      tmsu
+      file
+      qbittorrent
 
       # Desktop Env
       flameshot

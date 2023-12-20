@@ -88,5 +88,6 @@ case $choice in
     'Quit')
         echo "Program terminated." ;;
     *)
-        echo "Invalid option. Program terminated." ;;
+        notify-send "Runnig '$choice'"
+        exec $choice & ;;
 esac

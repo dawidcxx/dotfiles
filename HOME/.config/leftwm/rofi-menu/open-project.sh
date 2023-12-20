@@ -9,6 +9,8 @@ choice=$(echo -e "$projects" | rofi -dmenu -i -p 'Select Project: ')
 # Take action based on the choice
 if [ -n "$choice" ]; then
     {
+
+        notify-send "Opening $choice"
         # Change directory to the project
         cd "$choice";
         
