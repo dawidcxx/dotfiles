@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Find all projects in ~/Code
 projects=$(find ~/Code -maxdepth 4 -type d -name .git -printf '%h\n')
 

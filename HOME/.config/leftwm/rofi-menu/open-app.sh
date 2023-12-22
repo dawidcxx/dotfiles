@@ -60,7 +60,7 @@ case $choice in
         xrandr --output $display --mode $resolution --rate $highest_rate
         osu\! &;;
     'Open Code Project')
-        bash ~/.config/leftwm/open-project.sh & ;;
+        sh ~/.config/leftwm/rofi-menu/open-project.sh & ;;
     'Alacritty (Terminal / Command Line Interface)')
         alacritty & ;;
     'Kill App (via pkill)')

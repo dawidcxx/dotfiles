@@ -1,29 +1,40 @@
-# Build the exclude options for rsync
-exclude_options=""
-for arg in "$@"; do
-    exclude_options+="--exclude $arg "
-done
-
 # Specify source directory
 src_dir="./HOME/"
 
-# Destination directory is the home directory
+# Specify destination directory
 dst_dir="$HOME"
 
 # Get the current user
 current_user=$(whoami)
 
+#  Sync all by default
+if [ $# -eq 0 ]
+then
+    include_pattern='*'
+else
+    include_pattern=$1
+fi
+
 echo "src_dir = $src_dir";
 echo "dst_dir = $dst_dir";
 echo "current_user = $current_user";
-echo "exclude_options = $exclude_options";
+echo "include_pattern = $include_pattern";
 
-echo "Syncing files in 1secs";
+echo "Syncing files in 1 sec";
 
-sleep 1; 
+# Include parent directories of matching files
+include_dirs="${include_pattern%/*}"
 
-# Use rsync to sync files
-rsync -r -avh --exclude '.git' $exclude_options $src_dir $dst_dir
+echo "include_dirs = '$include_dirs'";
+
+sleep 1;
+
+
+{
+    cd $src_dir;
+    find . -name "$include_pattern" -type f -exec rsync -R -v {} $dst_dir \;
+}
+
 
 # Change ownership of the copied files to the current user
 chown -R $current_user $dst_dir
