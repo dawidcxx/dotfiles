@@ -19,6 +19,7 @@ Osu (Rythm Game)
 Switch Audio Output
 Open Code Project
 Kill App (via pkill)
+Wine (Windows Emulator)
 Power
 Quit")
 
@@ -65,6 +66,22 @@ case $choice in
         alacritty & ;;
     'Kill App (via pkill)')
         sh ~/.config/leftwm/killapp.sh & ;;
+    'Wine (Windows Emulator)')
+        # Get a list of Wine executables
+        wine_executables=$(find ~/Wine -type f -iname "*.exe")
+
+        # Use rofi to create a menu for selecting a Wine executable
+        wine_choice=$(echo "$wine_executables" | rofi -dmenu -p "Select a Wine executable")
+
+        case "$wine_choice" in
+            '')
+                echo "No option selected." ;;
+            *)
+                cd $(dirname "$wine_choice")
+                notify-send "Running '$wine_choice'"
+                WINEPREFIX="$HOME/.wine" wine "$wine_choice"  ;;
+        esac
+    ;;
     'Switch Audio Output')
         sink_options=$(pactl list short sinks)
         sink_choice=$(echo -e "$sink_options" | rofi -dmenu -i -p 'Pick sink: ')
@@ -73,10 +90,10 @@ case $choice in
         notify-send "Audio output switched '${sink_choice_pid}'"
         ;;
     'Power') 
-        declare -a power_options=("Shutdown\nReboot\nClose leftwm\nCancel")
+        declare -a power_options=("Shutdown/Off\nReboot\nClose leftwm\nCancel")
         power_choice=$(echo -e "${power_options[@]}" | rofi -dmenu -i -p 'Power option: ')
         case $power_choice in
-            'Shutdown')
+            'Shutdown/Off')
                 systemctl poweroff ;;
             'Reboot')
                 systemctl reboot ;;
@@ -87,6 +104,8 @@ case $choice in
         esac ;;
     'Quit')
         echo "Program terminated." ;;
+    '')
+        echo "No option selected." ;;
     *)
         notify-send "Runnig '$choice'"
         exec $choice & ;;
