@@ -20,6 +20,7 @@ Switch Audio Output
 Open Code Project
 Kill App (via pkill)
 Wine (Windows Emulator)
+Clipboard
 Power
 Quit")
 
@@ -46,6 +47,10 @@ case $choice in
         slack & ;;
     'VSCode (Text Editor)')
         code & ;;
+    'Clipboard')
+        clipboard_entry=$(greenclip print | rofi -dmenu -i -p 'Clipboard:')
+        echo -n $clipboard_entry | xclip -selection clipboard &
+    ;;
     'Drag&Drop File (Scratchpad Util)')
         leftwm command "ToggleScratchPad Pcmanfm" &;;
     'Pavucontrol (Audio Control)')

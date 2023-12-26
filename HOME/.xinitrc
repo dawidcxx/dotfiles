@@ -17,8 +17,8 @@ echo "Polybar launched..."
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 ~/.fehbg &
-
 dunst & 
+pkill greenclip && greenclip clear && greenclip daemon &
 
 xdg-mime default pcmanfm.desktop inode/directory
 
