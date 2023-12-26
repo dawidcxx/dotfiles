@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Action
+Tooltip=Open Terminal Here
+Name=Open Terminal Here
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+MimeTypes=inode/directory;
+Exec=alacritty --title "FileManager Alacritty"  --working-directory %f
+Name=Default profile

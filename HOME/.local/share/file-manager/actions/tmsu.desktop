@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Action
+Tooltip=Add TMSU tags
+Name=TMSU Tags
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+MimeTypes=image/*;
+Exec=~/.local/bin/add-tmsu-tag.sh %f
+Name=Default profile
