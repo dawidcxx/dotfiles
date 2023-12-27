@@ -53,6 +53,7 @@
         (name: "Pcmanfm", value: "pcmanfm", x: 0.6, y: 0, height: 0.6, width: 0.4),
     ],
     window_rules: [
+    ( window_title: "FileManager Alacritty", spawn_floating: true  ),
     ( window_class: "brave", spawn_on_tag: 1 ),
     ( window_class: "firefox", spawn_on_tag: 1 ),
     ( window_class: "discord", spawn_on_tag: 9 ),
