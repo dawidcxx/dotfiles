@@ -112,6 +112,8 @@
       tmsu
       file
       qbittorrent
+      haskellPackages.greenclip
+      wineWowPackages.unstableFull
 
       # Desktop Env
       flameshot
@@ -153,8 +155,9 @@
  
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
-  virtualisation.docker.liveRestore = false; 
+  virtualisation.docker.enableOnBoot = false;
 
+  virtualisation.docker.liveRestore = false; 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -180,7 +183,14 @@
   ]; 
   
   programs.light.enable = true; 
-
+  
+  programs.neovim = {
+     enable = true;
+     vimAlias = true;
+     viAlias = true;
+     withNodeJs = true;
+  };
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
