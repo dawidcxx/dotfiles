@@ -7,6 +7,7 @@ Chromium (Web Browser)
 VSCode (Text Editor)
 Alacritty (Terminal / Command Line Interface)
 KeepassXc (Password Manager)
+Btop (System Monitor)
 PCManFM (File Manager)
 ARandr (Manage displays)
 Redshift - ON (Enable Night light)
@@ -35,6 +36,8 @@ case $choice in
         chromium & ;;
     'Brave (Web Browser)')
         brave & ;;
+    'Btop (System Monitor)')
+        alacritty -e btop & ;;
     'Redshift - ON (Enable Night light)')
         redshift -O 3000 ;;
     'Redshift - OFF (Enable Day light)')
