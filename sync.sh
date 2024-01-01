@@ -35,9 +35,8 @@ sleep 1;
     find . -name "$include_pattern" -type f -exec rsync -R -v {} $dst_dir \;
 }
 
-
 # Change ownership of the copied files to the current user
-chown -R $current_user $dst_dir
+# chown -R $current_user "$dst_dir"
 
 echo "reload leftwm settings.."
 

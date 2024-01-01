@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Polybar
+GenericName=Polybar
+Categories=System;
+Exec=polybar
+Terminal=false
