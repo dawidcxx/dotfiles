@@ -18,16 +18,15 @@ fi
 pkill greenclip
 pkill polybar
 
-polybar &
 greenclip clear && greenclip daemon &
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 ~/.fehbg &
-dunst & 
-
 
 xdg-mime default pcmanfm.desktop inode/directory
 
-exec leftwm
+exec leftwm 
+
+
 
