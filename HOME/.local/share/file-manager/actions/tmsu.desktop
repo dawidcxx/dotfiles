@@ -6,5 +6,5 @@ Profiles=profile-zero;
 
 [X-Action-Profile profile-zero]
 MimeTypes=image/*;
-Exec=~/.local/bin/add-tmsu-tag.sh %f
+Exec=sh add-tmsu-tag.sh %f
 Name=Default profile
