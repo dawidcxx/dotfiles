@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -19,6 +20,9 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
 
+  programs.noisetorch.enable = true;
+  programs.dconf.enable = true;
+
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -26,6 +30,19 @@
        "nowatchdog"
        "quiet"
   ]; 
+
+
+#  environment.etc = {
+#    "pipewire/pipewire.conf.d/92-low-latency.conf".text = ''
+#      context.properties = {
+#	default.clock.rate = 48000
+#	default.clock.quantum = 32
+#	default.clock.min-quantum = 32
+#	default.clock.max-quantum = 32
+#     }
+#    '';
+#  };
+
 
  # boot.initrd.luks.devices."luks-817482c0-d08c-46c5-a991-12147d69a863".device = "/dev/disk/by-uuid/817482c0-d08c-46c5-a991-12147d69a863";
   networking.hostName = "nixos"; # Define your hostname.
@@ -60,20 +77,45 @@
   services.xserver.enable = true;
   services.xserver.displayManager.startx.enable = true;
 
+#  xdg.portal.enable = true;
+#  services.flatpak.enable = true;
+
   # Enable the KDE Plasma Desktop Environment.
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
+    xkb.layout = "pl";
+    
+     
+    inputClassSections = [
+      ''
+	Identifier "Disable3ButtonEmulation"
+        MatchIsPointer "on"
+        Option "Emulate3Buttons" "false"
+        Option "MiddleEmulation" "false"
+      ''
+    ];
   };
+
+  
+
   sound.enable = true;
   hardware.pulseaudio.enable = false;
 
+
+  hardware.logitech = {
+    wireless = {
+      enable = true;
+    }; 
+  };
+
   security.rtkit.enable = true;
   security.sudo.wheelNeedsPassword = false;
+  security.tpm2.enable = true;
+  security.tpm2.pkcs11.enable = true;
+  security.tpm2.tctiEnvironment.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -82,14 +124,24 @@
     pulse.enable = true;
   };
 
+  services.syncthing = {
+    enable = true;
+    user = "terra";
+    dataDir = "/home/terra/Documents";
+  };
+
+  security.pam.services.terra.enableGnomeKeyring = true;
 
   users.users.terra = {
     isNormalUser = true;
     description = "terra";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "tss" ];
     packages = with pkgs; [
       # Browsers
-      firefox
+      # firefox
+      (firefox.override { 
+         nativeMessagingHosts = [ inputs.pipewire-screenaudio.packages.${pkgs.system}.default ]; 
+      })
       brave
       chromium
 
@@ -101,6 +153,8 @@
       yt-dlp 
  
       # Tools
+      unzip
+      p7zip
       insync
       alacritty 
       discord
@@ -109,11 +163,14 @@
       lazydocker
       btrfs-progs 
       fzf 
+      util-linux
       tmsu
       file
       qbittorrent
       haskellPackages.greenclip
-      wineWowPackages.unstableFull
+      wineWowPackages.full
+      ncdu
+      tpm2-tools
 
       # Desktop Env
       flameshot
@@ -134,11 +191,15 @@
       feh
       gnome.adwaita-icon-theme
       wmctrl
+      xclip
       redshift
+      gnome.seahorse
+      solaar
 
       # Dev
       vscode
       rustc
+      rust-analyzer
       cargo
       nodejs
 
@@ -150,6 +211,10 @@
   
   services.dbus.enable = true;
   services.gvfs.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
  
@@ -165,7 +230,9 @@
      vim
      wget
      git
+     git-lfs
      htop
+     btop
      neofetch
      tealdeer
   ];
@@ -189,6 +256,7 @@
      vimAlias = true;
      viAlias = true;
      withNodeJs = true;
+     defaultEditor = true;
   };
   
 

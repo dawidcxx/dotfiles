@@ -54,8 +54,8 @@
   
   hardware.nvidia = { 
     modesetting.enable = true;
+    open = false;
     powerManagement.enable = false;
-    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   }; 
   
@@ -64,5 +64,9 @@
   ];
 
   virtualisation.docker.enableNvidia = true;
+
+  services.asusd.enable = true;
+  services.asusd.enableUserService = true;
+
 
 }
