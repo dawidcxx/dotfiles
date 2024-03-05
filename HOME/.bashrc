@@ -12,3 +12,8 @@ h() {
     echo -n $selected_history_entry | xclip -selection primary 
     eval "$selected_history_entry"
 }
+
+shopt -s histappend
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+export HISTSIZE=5000
+export HISTFILESIZE=10000
