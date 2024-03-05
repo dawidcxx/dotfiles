@@ -1,5 +1,5 @@
 {
-  description = "Simple nixos flake";
+  description = "my-nix root configuration";
 
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
