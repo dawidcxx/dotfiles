@@ -8,13 +8,18 @@ Dofiles, program configurations I use. Both for backup and reference.
 
 ```
 ├── HOME
+│   ├── .bashrc
 │   ├── .config
+│   │   ├── autostart
 │   │   ├── dunst
 │   │   ├── leftwm
 │   │   ├── pcmanfm
 │   │   ├── polybar
 │   │   └── rofi
 │   ├── .fehbg
+│   ├── .local
+│   │   ├── bin
+│   │   └── share
 │   ├── .profile
 │   ├── .xinitrc
 │   └── .Xresources
