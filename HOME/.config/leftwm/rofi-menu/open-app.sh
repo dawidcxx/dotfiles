@@ -67,7 +67,7 @@ case $choice in
         highest_rate=$(xrandr --query | grep -oP '[0-9]+\.[0-9]+' | sort -nr | head -n 1)
         resolution=$(xrandr --current | grep '*' | uniq | awk '{print $1}')
         xrandr --output $display --mode $resolution --rate $highest_rate
-        osu\! &;;
+        PIPEWIRE_LATENCY=64/48000 osu\! &;;
     'Open Code Project')
         sh ~/.config/leftwm/rofi-menu/open-project.sh & ;;
     'Alacritty (Terminal / Command Line Interface)')
