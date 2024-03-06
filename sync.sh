@@ -41,3 +41,7 @@ sleep 1;
 echo "reload leftwm settings.."
 
 leftwm command SoftReload
+
+if [ -f "$HOME/.fehbg" ]; then
+    sh $HOME/.fehbg
+fi

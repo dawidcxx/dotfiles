@@ -23,6 +23,7 @@
   programs.noisetorch.enable = true;
   programs.dconf.enable = true;
 
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernelParams = [

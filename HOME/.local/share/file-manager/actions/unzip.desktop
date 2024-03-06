@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Action
-Tooltip=Add TMSU tags
-Name=TMSU Tags
+Tooltip=Unzip contents
+Name=Unzip
 Profiles=profile-zero;
 
 [X-Action-Profile profile-zero]
-MimeTypes=image/*;
-Exec=sh add-tmsu-tag.sh %f
+MimeTypes=application/zip
+Exec=smart-unzip.sh %f
 Name=Default profile
