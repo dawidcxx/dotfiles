@@ -7,12 +7,15 @@ choice=$(echo -e "$projects" | rofi -dmenu -i -p 'Select Project: ')
 # Take action based on the choice
 if [ -n "$choice" ]; then
     {
-
-        notify-send "Opening $choice"
         # Change directory to the project
         cd "$choice";
-        
-        # Run code
-        code .
+
+        if [ -f "shell.nix" ]; then
+            notify-send "Opening '$choice' within nix-shell"
+            nix-shell shell.nix --run "code ."
+        else
+            notify-send "Opening '$choice'"
+            code .
+        fi
     }
 fi
