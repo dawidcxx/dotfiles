@@ -195,6 +195,7 @@
       redshift
       gnome.seahorse
       solaar
+      blender
 
       # Dev
       vscode
