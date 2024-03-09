@@ -259,6 +259,10 @@
      withNodeJs = true;
      defaultEditor = true;
   };
+
+  networking.extraHosts = ''
+    116.203.242.56 buntu
+  '';
   
 
   # Some programs need SUID wrappers, can be configured further or are
