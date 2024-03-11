@@ -39,8 +39,14 @@ case $choice in
     'Btop (System Monitor)')
         alacritty -e btop & ;;
     'Redshift - ON (Enable Night light)')
+        if [ -x "$(command -v light)" ]; then
+            light -S 10        
+        fi
         redshift -O 3000 ;;
     'Redshift - OFF (Enable Day light)')
+        if [ -x "$(command -v light)" ]; then
+            light -S 70        
+        fi
         redshift -x ;;
     'ARandr (Manage displays)')
         arandr & ;;
