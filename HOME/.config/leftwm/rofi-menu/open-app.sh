@@ -10,6 +10,7 @@ KeepassXc (Password Manager)
 Btop (System Monitor)
 PCManFM (File Manager)
 ARandr (Manage displays)
+Joplin (Notes)
 Redshift - ON (Enable Night light)
 Redshift - OFF (Enable Day light)
 Discord (Chatting App)
@@ -50,6 +51,8 @@ case $choice in
         redshift -x ;;
     'ARandr (Manage displays)')
         arandr & ;;
+    'Joplin (Notes)')
+        joplin-desktop & ;;
     'Discord (Chatting App)')
         discord & ;;
     'Slack (Chatting App)')
