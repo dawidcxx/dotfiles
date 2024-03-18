@@ -153,6 +153,8 @@
       yt-dlp 
  
       # Tools
+      joplin-desktop
+      blender
       unzip
       p7zip
       insync
@@ -195,7 +197,6 @@
       redshift
       gnome.seahorse
       solaar
-      blender
 
       # Dev
       vscode
@@ -259,10 +260,6 @@
      withNodeJs = true;
      defaultEditor = true;
   };
-
-  networking.extraHosts = ''
-    116.203.242.56 buntu
-  '';
   
 
   # Some programs need SUID wrappers, can be configured further or are
