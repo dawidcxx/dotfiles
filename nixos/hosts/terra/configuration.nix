@@ -20,6 +20,10 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
 
+  networking.hosts = {
+    "116.203.242.56" = ["buntu"];
+  };
+
   programs.noisetorch.enable = true;
   programs.dconf.enable = true;
 
@@ -87,14 +91,11 @@
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "pl";
-    
-     
     inputClassSections = [
       ''
-	Identifier "Disable3ButtonEmulation"
-        MatchIsPointer "on"
-        Option "Emulate3Buttons" "false"
-        Option "MiddleEmulation" "false"
+        MatchIsPointer            "on"
+        Identifier                "Disable3ButtonEmulation"
+        Option "Emulate3Buttons"  "False"
       ''
     ];
   };
