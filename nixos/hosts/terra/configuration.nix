@@ -58,6 +58,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "208.67.222.222" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
