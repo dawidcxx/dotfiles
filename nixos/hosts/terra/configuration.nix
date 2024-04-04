@@ -159,7 +159,6 @@
       blender
       unzip
       p7zip
-      insync
       alacritty 
       discord
       slack
