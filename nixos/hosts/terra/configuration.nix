@@ -140,10 +140,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "tss" ];
     packages = with pkgs; [
       # Browsers
-      # firefox
-      (firefox.override { 
-         nativeMessagingHosts = [ inputs.pipewire-screenaudio.packages.${pkgs.system}.default ]; 
-      })
+      firefox
       brave
       chromium
 
@@ -155,6 +152,7 @@
       yt-dlp 
  
       # Tools
+      home-manager
       joplin-desktop
       blender
       unzip
@@ -217,7 +215,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
-
+  programs.hyprland.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
  

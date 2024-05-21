@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu"  ];
+  boot.initrd.kernelModules = [ "amdgpu" "nvidia"  ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   time.hardwareClockInLocalTime = true;
@@ -56,7 +56,7 @@
     modesetting.enable = true;
     open = false;
     powerManagement.enable = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   }; 
   
   hardware.opengl.extraPackages = with pkgs; [
@@ -68,5 +68,9 @@
   services.asusd.enable = true;
   services.asusd.enableUserService = true;
 
+  # Need to check if this works
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{power/wakeup}="disabled"
+  '';
 
 }

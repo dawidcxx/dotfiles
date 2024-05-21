@@ -4,7 +4,6 @@
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
