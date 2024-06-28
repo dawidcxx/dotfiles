@@ -33,6 +33,7 @@
   boot.kernelParams = [
        "nowatchdog"
        "quiet"
+       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
   ]; 
 
 
@@ -125,11 +126,18 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  
+  services.pipewire.wireplumber.enable = true;
 
   services.syncthing = {
     enable = true;
     user = "terra";
     dataDir = "/home/terra/Documents";
+  };
+
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
   };
 
   security.pam.services.terra.enableGnomeKeyring = true;
@@ -147,6 +155,7 @@
       # Media
       mpv
       obs-studio
+      obs-studio-plugins.obs-pipewire-audio-capture
       imagemagick      
       libwebp
       yt-dlp 

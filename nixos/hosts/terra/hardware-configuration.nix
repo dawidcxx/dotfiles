@@ -44,13 +44,12 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  }; 
+    enable32Bit = true;
+  };
    
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia" "amd"];
   
   hardware.nvidia = { 
     modesetting.enable = true;
@@ -58,12 +57,6 @@
     powerManagement.enable = false;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   }; 
-  
-  hardware.opengl.extraPackages = with pkgs; [
-    amdvlk
-  ];
-
-  virtualisation.docker.enableNvidia = true;
 
   services.asusd.enable = true;
   services.asusd.enableUserService = true;
