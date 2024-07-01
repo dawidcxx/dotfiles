@@ -19,14 +19,13 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.configurationLimit = 2;
 
   networking.hosts = {
     "116.203.242.56" = ["buntu"];
   };
 
-  programs.noisetorch.enable = true;
   programs.dconf.enable = true;
-
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -81,6 +80,8 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.xkb.layout = "pl";
+
   services.xserver.displayManager.startx.enable = true;
 
 #  xdg.portal.enable = true;
@@ -89,29 +90,13 @@
   # Enable the KDE Plasma Desktop Environment.
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "pl";
-    inputClassSections = [
-      ''
-        MatchIsPointer            "on"
-        Identifier                "Disable3ButtonEmulation"
-        Option "Emulate3Buttons"  "False"
-      ''
-    ];
-  };
-
-  
-
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-
 
   hardware.logitech = {
     wireless = {
       enable = true;
-    }; 
+   }; 
   };
 
   security.rtkit.enable = true;
@@ -147,6 +132,9 @@
     description = "terra";
     extraGroups = [ "networkmanager" "wheel" "docker" "tss" ];
     packages = with pkgs; [
+      # System
+      mesa
+      
       # Browsers
       firefox
       brave
@@ -224,14 +212,12 @@
 
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
-  programs.hyprland.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
  
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = false;
-
   virtualisation.docker.liveRestore = false; 
 
   # List packages installed in system profile. To search, run:
