@@ -33,6 +33,7 @@
        "nowatchdog"
        "quiet"
        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+       "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1"
   ]; 
 
 
@@ -81,10 +82,23 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.xkb.layout = "pl";
+  
+  programs.hyprland.enable = true;
+  programs.waybar.enable = true;
 
   services.xserver.displayManager.startx.enable = true;
 
-#  xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["gtk" "hyprland"];
+    };
+  };
 #  services.flatpak.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
@@ -130,11 +144,8 @@
   users.users.terra = {
     isNormalUser = true;
     description = "terra";
-    extraGroups = [ "networkmanager" "wheel" "docker" "tss" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "tss" "video" "input" ];
     packages = with pkgs; [
-      # System
-      mesa
-      
       # Browsers
       firefox
       brave
@@ -204,6 +215,10 @@
       # Random
       osu-lazer-bin
 
+
+      # Wayland env
+      ulauncher
+
     ];
   };
   
@@ -212,6 +227,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
  

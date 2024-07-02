@@ -9,8 +9,9 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu" "nvidia"  ];
+  boot.initrd.kernelModules = [ "amdgpu"  "nvidia"  ];
   boot.kernelModules = [ "kvm-amd" ];
+
   boot.extraModulePackages = [ ];
   time.hardwareClockInLocalTime = true;
   hardware.opentabletdriver.enable = true;
@@ -44,17 +45,16 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
    
-  services.xserver.videoDrivers = ["nvidia" "amd"];
+  services.xserver.videoDrivers = ["amdgpu" "nvidia"];
   
   hardware.nvidia = { 
     modesetting.enable = true;
-    open = false;
+    open = true;
     powerManagement.enable = false;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   }; 
