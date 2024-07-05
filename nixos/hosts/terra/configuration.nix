@@ -166,7 +166,7 @@
       unzip
       p7zip
       alacritty 
-      discord
+      vesktop
       slack
       keepassxc
       lazydocker

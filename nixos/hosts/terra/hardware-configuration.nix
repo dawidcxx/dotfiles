@@ -50,13 +50,13 @@
     enable32Bit = true;
   };
    
-  services.xserver.videoDrivers = ["amdgpu" "nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
   
   hardware.nvidia = { 
     modesetting.enable = true;
     open = true;
     powerManagement.enable = false;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   }; 
 
   services.asusd.enable = true;

@@ -54,7 +54,7 @@ case $choice in
     'Joplin (Notes)')
         joplin-desktop & ;;
     'Discord (Chatting App)')
-        discord & ;;
+        vesktop & ;;
     'Slack (Chatting App)')
         slack & ;;
     'VSCode (Text Editor)')
