@@ -19,7 +19,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.configurationLimit = 2;
+  boot.loader.grub.configurationLimit = 3;
 
   networking.hosts = {
     "116.203.242.56" = ["buntu"];
@@ -198,11 +198,10 @@
       pamixer 
       pavucontrol
       feh
-      gnome.adwaita-icon-theme
+      adwaita-icon-theme
       wmctrl
       xclip
       redshift
-      gnome.seahorse
       solaar
 
       # Dev
@@ -226,7 +225,6 @@
   services.gvfs.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
