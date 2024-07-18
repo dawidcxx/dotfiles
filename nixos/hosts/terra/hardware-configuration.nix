@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu"  "nvidia"  ];
+  boot.initrd.kernelModules = [ "nvidia"  ];
   boot.kernelModules = [ "kvm-amd" ];
 
   boot.extraModulePackages = [ ];
@@ -50,13 +50,13 @@
     enable32Bit = true;
   };
    
-  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   
   hardware.nvidia = { 
     modesetting.enable = true;
     open = true;
     powerManagement.enable = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   }; 
 
   services.asusd.enable = true;

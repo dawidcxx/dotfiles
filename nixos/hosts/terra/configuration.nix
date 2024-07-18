@@ -27,13 +27,14 @@
 
   programs.dconf.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   boot.kernelParams = [
        "nowatchdog"
        "quiet"
-       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-       "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1"
+       "splash"
+       "nvidia-drm.fbdev=1"
+       "nvidia-drm.modeset=1"
   ]; 
 
 
@@ -59,7 +60,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "208.67.222.222" ];
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -82,6 +83,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.xkb.layout = "pl";
+  services.xserver.config =  ''
+      Section "InputClass"
+          Identifier "middle button"
+          MatchIsPointer "on"
+          Option "Emulate3Buttons" "off"
+          Option "MiddleEmulation" "false"
+      EndSection
+  '';
   
   programs.hyprland.enable = true;
   programs.waybar.enable = true;
