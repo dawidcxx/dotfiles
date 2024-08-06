@@ -113,7 +113,6 @@
   # Enable the KDE Plasma Desktop Environment.
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
 
   hardware.logitech = {
@@ -149,11 +148,13 @@
   };
 
   security.pam.services.terra.enableGnomeKeyring = true;
+  hardware.i2c.enable = true;
+  hardware.wooting.enable = true;
 
   users.users.terra = {
     isNormalUser = true;
     description = "terra";
-    extraGroups = [ "networkmanager" "wheel" "docker" "tss" "video" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "tss" "video" "input" "i2c" ];
     packages = with pkgs; [
       # Browsers
       firefox
