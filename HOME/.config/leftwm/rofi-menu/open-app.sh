@@ -43,10 +43,16 @@ case $choice in
         if [ -x "$(command -v light)" ]; then
             light -S 10        
         fi
+        if [ -x "$(command -v ddccontrol)" ]; then
+            ddccontrol -r 0x10 -w 20 dev:/dev/i2c-5     
+        fi
         redshift -O 3000 ;;
     'Redshift - OFF (Enable Day light)')
         if [ -x "$(command -v light)" ]; then
             light -S 70        
+        fi
+        if [ -x "$(command -v ddccontrol)" ]; then
+            ddccontrol -r 0x10 -w 100 dev:/dev/i2c-5     
         fi
         redshift -x ;;
     'ARandr (Manage displays)')
@@ -114,6 +120,8 @@ case $choice in
                 systemctl poweroff ;;
             'Reboot')
                 systemctl reboot ;;
+            'Lock/Suspend')
+                betterlockscreen --lock blur ;; 
             'Close leftwm')
                 pkill leftwm ;;
             *)

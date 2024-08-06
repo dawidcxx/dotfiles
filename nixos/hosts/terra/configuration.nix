@@ -93,7 +93,6 @@
   '';
   
   programs.hyprland.enable = true;
-  programs.waybar.enable = true;
 
   services.xserver.displayManager.startx.enable = true;
 
@@ -149,6 +148,7 @@
 
   security.pam.services.terra.enableGnomeKeyring = true;
   hardware.i2c.enable = true;
+  services.ddccontrol.enable = true;
   hardware.wooting.enable = true;
 
   users.users.terra = {
@@ -194,6 +194,7 @@
       # Desktop Env
       flameshot
       pasystray
+      betterlockscreen
       leftwm
       polybar
       pasystray
@@ -213,6 +214,7 @@
       xclip
       redshift
       solaar
+      ddccontrol-db
 
       # Dev
       vscode
