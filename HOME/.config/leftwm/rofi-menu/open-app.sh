@@ -113,15 +113,15 @@ case $choice in
         notify-send "Audio output switched '${sink_choice_pid}'"
         ;;
     'Power') 
-        declare -a power_options=("Shutdown/Off\nReboot\nClose leftwm\nCancel")
+        declare -a power_options=("Shutdown/Off\nReboot\nLock\nClose leftwm\nCancel")
         power_choice=$(echo -e "${power_options[@]}" | rofi -dmenu -i -p 'Power option: ')
         case $power_choice in
             'Shutdown/Off')
                 systemctl poweroff ;;
             'Reboot')
                 systemctl reboot ;;
-            'Lock/Suspend')
-                betterlockscreen --lock blur ;; 
+            'Lock')
+                betterlockscreen ;;
             'Close leftwm')
                 pkill leftwm ;;
             *)
