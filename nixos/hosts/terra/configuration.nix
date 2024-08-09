@@ -154,7 +154,7 @@
   users.users.terra = {
     isNormalUser = true;
     description = "terra";
-    extraGroups = [ "networkmanager" "wheel" "docker" "tss" "video" "input" "i2c" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "tss" "video" "input" " " ];
     packages = with pkgs; [
       # Browsers
       firefox
